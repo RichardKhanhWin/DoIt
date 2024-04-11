@@ -8,7 +8,7 @@ export default function Home() {
   const { data, error, isLoading } = useSWR("/api/items", (url) => fetch(url).then(response => response.json()));
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24 dark:bg-slate-900">
+    <main className="flex min-h-screen flex-col items-center justify-between p-2">
       { isLoading ? (
         <p>Loading...</p>
       ) : error ? (
