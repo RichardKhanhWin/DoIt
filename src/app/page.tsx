@@ -1,14 +1,14 @@
 'use client';
 
 import ToDoCard from "@/components/ToDoCard";
+import Link from "next/link";
 import useSWR from "swr";
 
 export default function Home() {
   const { data, error, isLoading } = useSWR("/api/items", (url) => fetch(url).then(response => response.json()));
-  console.log(data);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center justify-between p-24 dark:bg-slate-900">
       { isLoading ? (
         <p>Loading...</p>
       ) : error ? (
@@ -30,6 +30,8 @@ export default function Home() {
           <p>Nothing in here.</p>
         )
       }
+
+      <Link href="/create">Create</Link>
     </main>
   );
 }
