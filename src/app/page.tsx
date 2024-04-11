@@ -1,6 +1,6 @@
 'use client';
 
-import ToDoItem from "@/components/ToDoItem";
+import ToDoCard from "@/components/ToDoCard";
 import useSWR from "swr";
 
 export default function Home() {
@@ -17,7 +17,7 @@ export default function Home() {
           <div className="flex-col">
             { data.map(element => {
                 return (
-                  <ToDoItem
+                  <ToDoCard
                     key={element.id}
                     title={element.title}
                     description={element.description}
