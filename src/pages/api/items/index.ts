@@ -21,5 +21,19 @@ export default async function handle(req, res) {
 		});
 
 		res.json(result);
+	} else if (req.method === "PUT") {
+		const { id, title, description, done } = req.body;
+		const result = await prisma.toDoItem.update({
+			where: {
+				id: parseInt(id)
+			},
+			data: {
+				title,
+				description,
+				done
+			}
+		})
+
+		res.json(result);
 	}
 }

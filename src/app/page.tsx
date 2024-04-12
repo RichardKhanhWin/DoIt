@@ -15,10 +15,11 @@ export default function Home() {
         <p>An error occured.</p>
       ) : data ? (
           <div className="flex-col">
-            { data.map(element => {
+            { data.map((element, index) => {
                 return (
                   <ToDoCard
-                    key={element.id}
+                    key={index}
+                    item_id={element.id}
                     title={element.title}
                     description={element.description}
                     done={element.done} />
