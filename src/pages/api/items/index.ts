@@ -35,5 +35,14 @@ export default async function handle(req, res) {
 		})
 
 		res.json(result);
+	} else if (req.method === "DELETE") {
+		const { id } = req.body;
+		const result = await prisma.toDoItem.delete({
+			where: {
+				id: parseInt(id)
+			}
+		});
+
+		res.json(result);
 	}
 }
