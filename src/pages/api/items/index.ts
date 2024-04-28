@@ -32,7 +32,7 @@ export default async function handle(req, res) {
 				description,
 				done
 			}
-		})
+		});
 
 		res.json(result);
 	} else if (req.method === "DELETE") {
