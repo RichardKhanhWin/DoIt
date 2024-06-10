@@ -1,36 +1,26 @@
-'use client';
-
 import ToDoCard from "@/components/ToDoCard";
+import { ToDoItem } from "@/lib/definitions";
 import Link from "next/link";
-import useSWR from "swr";
+import { fetchToDoItems } from "@/lib/data";
 
-export default function Home() {
-  const { data, error, isLoading } = useSWR("/api/items", (url) => fetch(url).then(response => response.json()));
+export default async function Home() {
+  const data = await fetchToDoItems();
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-2">
-      { isLoading ? (
-        <p>Loading...</p>
-      ) : error ? (
-        <p>An error occured.</p>
-      ) : data ? (
-          <div className="flex-col">
-            { data.map((element, index) => {
-                return (
-                  <ToDoCard
-                    key={index}
-                    item_id={element.id}
-                    title={element.title}
-                    description={element.description}
-                    done={element.done} />
-                )
-              })
-            }
-          </div>
-        ) : (
-          <p>Nothing in here.</p>
-        )
-      }
+      <div className="flex-col">
+        { data.map((element: ToDoItem, index: number) => {
+            return (
+              <ToDoCard
+                key={index}
+                item_id={element.id}
+                title={element.title}
+                description={element.description ? element.description : ''}
+                done={element.done} />
+            )
+          })
+        }
+      </div>
 
       <Link href="/create">Create</Link>
     </main>
