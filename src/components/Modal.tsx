@@ -20,10 +20,10 @@ export default function Modal({ children }: { children: React.ReactNode }) {
 	}
 
 	return createPortal(
-		<div className="absolute flex bg-gray-700 justify-center items-center top-0 right-0 bottom-0 left-0 z-50">
-			<dialog ref={dialogRef} onClose={onDismiss} className="bg-blue-500 w-4/5 max-w-lg h-auto max-h-lg relative justify-center items-center">
+		<div className="absolute flex bg-gray-700 bg-opacity-80 justify-center items-center top-0 right-0 bottom-0 left-0">
+			<dialog ref={dialogRef} onClose={onDismiss} className="flex flex-col w-4/5 max-w-lg min-h-[400px] justify-center p-2 dark:bg-blue-950">
 				<button onClick={onDismiss}>
-					<ArrowLeftIcon className="min-w-5 min-h-5" />
+					<ArrowLeftIcon className="max-w-[20px] max-h-[20px] dark:text-white" />
 				</button>
 				{children}
 			</dialog>
