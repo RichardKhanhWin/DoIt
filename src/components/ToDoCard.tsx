@@ -12,16 +12,19 @@ export default function ToDoCard({ item_id, title, description, done }: { item_i
 
 	const [complete, setComplete] = useState(done);
 
+	function handleClick() {
+		setComplete(!complete);
+		toggle();
+	}
+
 	return (
 		<div className="bg-slate-200 text-black border-2 border-slate-800 p-3 w-96 my-4">
 			<div className="flex justify-between">
 				<h2 className="font-bold">{title}</h2>
 				<div className="flex justify-between items-center gap-x-2">
-					<form action={toggle}>
-						<button onClick={() => { setComplete(!complete) }} className="bg-white w-4 h-4 border-2 border-slate-400 block">
-							{ complete && <CheckIcon /> }
-						</button>
-					</form>
+					<button onClick={handleClick} className="bg-white w-4 h-4 border-2 border-slate-400 block">
+						{ complete && <CheckIcon /> }
+					</button>
 					<Link href={`/edit/${item_id}`} className="bg-white w-4 h-4 border-2 border-slate-400 block">
 						<PencilIcon />
 					</Link>
