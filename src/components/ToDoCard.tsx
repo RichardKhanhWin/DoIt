@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { toggleDone, deleteToDoItem } from '@/lib/actions';
-import { CheckIcon, PencilIcon, TrashIcon } from '@heroicons/react/24/solid';
+import { PencilIcon, TrashIcon } from '@heroicons/react/24/solid';
 import Link from 'next/link';
 import Checkbox from './Checkbox';
 
