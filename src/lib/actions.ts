@@ -49,7 +49,7 @@ export async function updateToDoItem(id: number, formData: FormData) {
 	redirect('/');
 }
 
-export async function toggleDone(id: number | string) {
+export async function toggleDone(id: number | string, done: boolean) {
 	const idToUpdate = typeof id === 'number' ? id : Number(id);
 
 	const itemToUpdate = await prisma.toDoItem.findUnique({
@@ -62,8 +62,7 @@ export async function toggleDone(id: number | string) {
 		throw Error("Item not found.");
 	}
 
-	itemToUpdate.done = ! itemToUpdate?.done;
-
+	itemToUpdate.done = done;
 
 	await prisma.toDoItem.update({
 		where: {

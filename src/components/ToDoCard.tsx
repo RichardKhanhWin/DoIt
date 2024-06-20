@@ -8,14 +8,13 @@ import Checkbox from './Checkbox';
 
 export default function ToDoCard({ item_id, title, description, done }: { item_id: number, title: string, description: string | null, done: boolean }) {
 	const toggle = toggleDone.bind(null, item_id);
-
 	const deleteItem = deleteToDoItem.bind(null, item_id);
-
+	
 	const [complete, setComplete] = useState(done);
 
 	function handleClick() {
+		toggle(!complete);
 		setComplete(!complete);
-		toggle();
 	}
 
 	return (
