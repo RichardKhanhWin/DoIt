@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { CheckIcon } from '@heroicons/react/24/outline';
 
-export default function Checkbox({ name, defaultChecked, onClick, className }: { name: string, defaultChecked?: boolean, onClick?: () => any, className?: string }) {
+export default function Checkbox({ name, defaultChecked, onClick, className }: { name?: string, defaultChecked?: boolean, onClick?: () => any, className?: string }) {
 	const [checked, setChecked] = useState(defaultChecked || false);
 
 	function handleClick() {
