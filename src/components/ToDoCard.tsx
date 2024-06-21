@@ -20,7 +20,7 @@ export default function ToDoCard({ item_id, title, description, done }: { item_i
 	return (
 		<div className="bg-slate-200 text-black border-2 border-slate-800 p-3 w-96 my-4">
 			<div className="flex justify-between">
-				<h2 className="font-bold">{title}</h2>
+				<h2 className="font-bold whitespace-nowrap overflow-hidden text-ellipsis">{title}</h2>
 				<div className="flex justify-between items-center gap-x-2">
 					<Checkbox onClick={handleClick} defaultChecked={complete} className="bg-white w-4 h-4 border-2 border-slate-400 block" />
 					<Link href={`/edit/${item_id}`} className="bg-white w-4 h-4 border-2 border-slate-400 block">
@@ -33,7 +33,7 @@ export default function ToDoCard({ item_id, title, description, done }: { item_i
 					</form>
 				</div>
 			</div>
-			<p>{description}</p>
+			<p className="h-[72px] line-clamp-3 text-ellipsis">{description}</p>
 		</div>
 	);
 }
