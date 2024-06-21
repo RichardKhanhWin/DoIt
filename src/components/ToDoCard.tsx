@@ -12,9 +12,16 @@ export default function ToDoCard({ item_id, title, description, done }: { item_i
 	
 	const [complete, setComplete] = useState(done);
 
-	function handleClick() {
+	function handleCheckboxClick() {
 		toggle(!complete);
 		setComplete(!complete);
+	}
+
+	function handleDeleteButtonClick() {
+		// Ask for confirmation
+		if (confirm(`Are you sure you want to delete ${title}?`)) {
+			deleteItem();
+		}
 	}
 
 	return (
@@ -22,11 +29,11 @@ export default function ToDoCard({ item_id, title, description, done }: { item_i
 			<div className="flex justify-between">
 				<h2 className="font-bold whitespace-nowrap overflow-hidden text-ellipsis">{title}</h2>
 				<div className="flex justify-between items-center gap-x-2">
-					<Checkbox onClick={handleClick} defaultChecked={complete} className="bg-white w-4 h-4 border-2 border-slate-400 block" />
+					<Checkbox onClick={handleCheckboxClick} defaultChecked={complete} className="bg-white w-4 h-4 border-2 border-slate-400 block" />
 					<Link href={`/edit/${item_id}`} className="bg-white w-4 h-4 border-2 border-slate-400 block">
 						<PencilIcon />
 					</Link>
-					<button className="bg-white w-4 h-4 border-2 border-slate-400 block" onClick={() => deleteItem()}>
+					<button className="bg-white w-4 h-4 border-2 border-slate-400 block" onClick={handleDeleteButtonClick}>
 						<TrashIcon />
 					</button>
 				</div>
