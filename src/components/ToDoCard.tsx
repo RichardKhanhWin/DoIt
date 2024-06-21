@@ -26,11 +26,9 @@ export default function ToDoCard({ item_id, title, description, done }: { item_i
 					<Link href={`/edit/${item_id}`} className="bg-white w-4 h-4 border-2 border-slate-400 block">
 						<PencilIcon />
 					</Link>
-					<form action={deleteItem}>
-						<button className="bg-white w-4 h-4 border-2 border-slate-400 block">
-							<TrashIcon />
-						</button>
-					</form>
+					<button className="bg-white w-4 h-4 border-2 border-slate-400 block" onClick={() => deleteItem()}>
+						<TrashIcon />
+					</button>
 				</div>
 			</div>
 			<p className="h-[72px] line-clamp-3 text-ellipsis">{description}</p>
