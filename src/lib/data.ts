@@ -6,8 +6,8 @@ export async function fetchToDoItems() {
 	return toDoItems;
 }
 
-export async function fetchToDoItemById(id: number | string) {
-	const toDoItem = await prisma.toDoItem.findFirst({ where: { id: typeof(id) == "number" ? id : Number(id) } });
+export async function fetchToDoItemById(id: string) {
+	const toDoItem = await prisma.toDoItem.findFirst({ where: { id: id } });
 
 	return toDoItem;
 }

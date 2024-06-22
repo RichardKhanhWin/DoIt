@@ -6,7 +6,7 @@ import { redirect } from 'next/navigation';
 import { z } from 'zod';
 
 const ToDoObject = z.object({
-	id: z.coerce.number(),
+	id: z.string(),
 	title: z.string(),
 	description: z.string().nullable(),
 	done: z.coerce.boolean()
@@ -28,7 +28,7 @@ export async function createToDoItem(formData: FormData) {
 }
 
 const UpdateForm = ToDoObject.omit({ id: true });
-export async function updateToDoItem(id: number, formData: FormData) {
+export async function updateToDoItem(id: string, formData: FormData) {
 	const updatedData: { title: string, description: string | null, done: boolean } = UpdateForm.parse({
 		title: formData.get('title'),
 		description: formData.get('description'),
@@ -37,7 +37,7 @@ export async function updateToDoItem(id: number, formData: FormData) {
 
 	await prisma.toDoItem.update({
 		where: {
-			id: Number(id)
+			id
 		},
 		data: {
 			...updatedData
@@ -49,12 +49,10 @@ export async function updateToDoItem(id: number, formData: FormData) {
 	redirect('/');
 }
 
-export async function toggleDone(id: number | string, done: boolean) {
-	const idToUpdate = typeof id === 'number' ? id : Number(id);
-
+export async function toggleDone(id: string, done: boolean) {
 	const itemToUpdate = await prisma.toDoItem.findUnique({
 		where: {
-			id: idToUpdate
+			id
 		}
 	});
 
@@ -66,7 +64,7 @@ export async function toggleDone(id: number | string, done: boolean) {
 
 	await prisma.toDoItem.update({
 		where: {
-			id: idToUpdate
+			id
 		},
 		data: {
 			...itemToUpdate
@@ -74,12 +72,10 @@ export async function toggleDone(id: number | string, done: boolean) {
 	});
 }
 
-export async function deleteToDoItem(id: number | string) {
-	const idToDelete = typeof id === 'number' ? id : Number(id);
-
+export async function deleteToDoItem(id: string) {
 	await prisma.toDoItem.delete({
 		where: {
-			id: idToDelete
+			id
 		}
 	});
 

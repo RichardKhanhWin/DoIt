@@ -6,7 +6,7 @@ import { PencilIcon, TrashIcon } from '@heroicons/react/24/solid';
 import Link from 'next/link';
 import Checkbox from './Checkbox';
 
-export default function ToDoCard({ item_id, title, description, done }: { item_id: number, title: string, description: string | null, done: boolean }) {
+export default function ToDoCard({ item_id, title, description, done }: { item_id: string, title: string, description: string | null, done: boolean }) {
 	const toggle = toggleDone.bind(null, item_id);
 	const deleteItem = deleteToDoItem.bind(null, item_id);
 	
