@@ -19,7 +19,7 @@ export default function ToDoCard({ item_id, title, description, done }: { item_i
 
 	function handleDeleteButtonClick() {
 		// Ask for confirmation
-		if (confirm(`Are you sure you want to delete ${title}?`)) {
+		if (confirm(`Are you sure you want to delete this card: ${title}?`)) {
 			deleteItem();
 		}
 	}
