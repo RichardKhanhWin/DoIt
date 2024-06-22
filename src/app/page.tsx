@@ -2,6 +2,7 @@ import ToDoCard from "@/components/ToDoCard";
 import { ToDoItem } from "@/lib/definitions";
 import Link from "next/link";
 import { fetchToDoItems } from "@/lib/data";
+import { PlusIcon } from "@heroicons/react/24/outline";
 
 export default async function Home() {
   const data = await fetchToDoItems();
@@ -22,7 +23,9 @@ export default async function Home() {
         }
       </div>
 
-      <Link href="/create">Create</Link>
+      <Link href="/create" className="p-2 bg-blue-700 text-white rounded-md">
+        <PlusIcon className="h-5 w-5" />
+      </Link>
     </main>
   );
 }
