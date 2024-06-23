@@ -2,7 +2,7 @@ import { updateToDoItem } from "@/lib/actions";
 import { fetchToDoItemById } from "@/lib/data";
 import Checkbox from "@/components/Checkbox";
 
-export default async function EditToDoPage({ params }: { params: { id: number }}) {
+export default async function EditToDoPage({ params }: { params: { id: string }}) {
 	const item = await fetchToDoItemById(params.id);
 	const editItem = updateToDoItem.bind(null, params.id);
 
