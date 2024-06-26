@@ -6,21 +6,27 @@ import { redirect } from 'next/navigation';
 import { z } from 'zod';
 
 const ToDoObject = z.object({
-	id: z.string(),
-	title: z.string(),
+	id: z.string().uuid(),
+	title: z.string().max(50),
 	description: z.string().nullable(),
 	done: z.coerce.boolean()
 });
 
 const CreateForm = ToDoObject.omit({ id: true });
 export async function createToDoItem(formData: FormData) {
-	const createdData: { title: string, description: string | null, done: boolean } = CreateForm.parse({
+	const createdData: z.SafeParseReturnType<{ title: string, description: string | null, done: boolean }, { title: string, description: string | null, done: boolean }> = CreateForm.safeParse({
 		title: formData.get('title'),
 		description: formData.get('description'),
 		done: formData.get('done')
 	});
 
-	await prisma.toDoItem.create({ data: createdData });
+	if (!createdData.success) {
+		return {
+			errors: createdData.error.flatten().fieldErrors
+		};
+	}
+	
+	await prisma.toDoItem.create({ data: createdData.data });
 
 	revalidatePath('/');
 	
