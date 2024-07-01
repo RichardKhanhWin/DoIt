@@ -21,9 +21,7 @@ export async function createToDoItem(formData: FormData) {
 	});
 
 	if (!createdData.success) {
-		return {
-			errors: createdData.error.flatten().fieldErrors
-		};
+		throw new Error(createdData.error.flatten().fieldErrors.title?.join());
 	}
 	
 	await prisma.toDoItem.create({ data: createdData.data });
