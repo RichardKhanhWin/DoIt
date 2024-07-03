@@ -14,7 +14,7 @@ const ToDoObject = z.object({
 
 const CreateForm = ToDoObject.omit({ id: true });
 export async function createToDoItem(formData: FormData) {
-	const createdData: z.SafeParseReturnType<{ title: string, description: string | null, done: boolean }, { title: string, description: string | null, done: boolean }> = CreateForm.safeParse({
+	const createdData = CreateForm.safeParse({
 		title: formData.get('title')!.toString().trim(),
 		description: formData.get('description'),
 		done: formData.get('done')
@@ -33,7 +33,7 @@ export async function createToDoItem(formData: FormData) {
 
 const UpdateForm = ToDoObject.omit({ id: true });
 export async function updateToDoItem(id: string, formData: FormData) {
-	const updatedData: z.SafeParseReturnType<{ title: string, description: string | null, done: boolean }, { title: string, description: string | null, done: boolean }> = UpdateForm.safeParse({
+	const updatedData = UpdateForm.safeParse({
 		title: formData.get('title')!.toString().trim(),
 		description: formData.get('description'),
 		done: formData.get('done')
