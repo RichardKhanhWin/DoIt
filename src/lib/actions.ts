@@ -33,11 +33,15 @@ export async function createToDoItem(formData: FormData) {
 
 const UpdateForm = ToDoObject.omit({ id: true });
 export async function updateToDoItem(id: string, formData: FormData) {
-	const updatedData: { title: string, description: string | null, done: boolean } = UpdateForm.parse({
-		title: formData.get('title'),
+	const updatedData: z.SafeParseReturnType<{ title: string, description: string | null, done: boolean }, { title: string, description: string | null, done: boolean }> = UpdateForm.safeParse({
+		title: formData.get('title')!.toString().trim(),
 		description: formData.get('description'),
 		done: formData.get('done')
 	});
+
+	if (!updatedData.success) {
+		throw new Error(updatedData.error.flatten().fieldErrors.title?.join());
+	}
 
 	await prisma.toDoItem.update({
 		where: {
