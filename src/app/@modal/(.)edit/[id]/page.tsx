@@ -6,7 +6,7 @@ import Checkbox from "@/components/Checkbox";
 export default async function EditToDoModal({
 	params
 }: {
-	params: { id: number }
+	params: { id: string }
 }) {
 	const item = await fetchToDoItemById(params.id);
 	const editItem = updateToDoItem.bind(null, params.id);
