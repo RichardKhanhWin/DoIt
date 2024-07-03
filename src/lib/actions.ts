@@ -48,7 +48,7 @@ export async function updateToDoItem(id: string, formData: FormData) {
 			id
 		},
 		data: {
-			...updatedData
+			...updatedData.data
 		}
 	});
 
