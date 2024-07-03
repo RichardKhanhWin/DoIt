@@ -15,7 +15,7 @@ const ToDoObject = z.object({
 const CreateForm = ToDoObject.omit({ id: true });
 export async function createToDoItem(formData: FormData) {
 	const createdData: z.SafeParseReturnType<{ title: string, description: string | null, done: boolean }, { title: string, description: string | null, done: boolean }> = CreateForm.safeParse({
-		title: formData.get('title'),
+		title: formData.get('title')!.toString().trim(),
 		description: formData.get('description'),
 		done: formData.get('done')
 	});
