@@ -1,0 +1,17 @@
+.toggle {
+	cursor: pointer;
+	position: fixed;
+	left: 5px;
+	aspect-ratio: 1/1;
+	height: 3rem;
+	width: auto;
+	margin: 0;
+	background-color: transparent;
+	border: none;
+}
+
+.toggle svg {
+	display: block;
+	position: relative;
+	fill: var(--primary-bright);
+}

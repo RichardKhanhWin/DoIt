@@ -1,0 +1,21 @@
+:root[data-theme="dark"] {
+	--primary-bright:       #ffffff;
+	--primary:              #d9d9d9;
+	--primary-dim:          #666666;
+	--primary-dark:         #202020;
+	--secondary:            #ff3d7f;
+	--secondary-bright:     #ffea5f;
+	--backround:            #060708;
+
+	color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+	--primary-bright:       #000000;
+	--primary:              #060708;
+	--primary-dim:          #121315;
+	--primary-dark:         #efefef;
+	--secondary:            #002aff;
+	--secondary-bright:     #4800ff;
+	--background:           #ededed;
+}
