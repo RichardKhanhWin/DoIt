@@ -3,10 +3,10 @@
 	--primary:              #d9d9d9;
 	--primary-dim:          #666666;
 	--primary-dark:         #202020;
-	--secondary:            #ff3d7f;
-	--secondary-bright:     #ffea5f;
+	--secondary:            #0059ff;
+	--secondary-bright:     #4800ff;
 	--backround:            #060708;
-
+	
 	color-scheme: dark;
 }
 
@@ -15,7 +15,7 @@
 	--primary:              #060708;
 	--primary-dim:          #121315;
 	--primary-dark:         #efefef;
-	--secondary:            #002aff;
-	--secondary-bright:     #4800ff;
+	--secondary:            #3dff87;
+	--secondary-bright:     #ffea5f;
 	--background:           #ededed;
 }
