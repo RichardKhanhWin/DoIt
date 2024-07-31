@@ -8,7 +8,7 @@
 	width: auto;
 	margin: 0;
 	background-color: transparent;
-	border: solid var(--primary-bright) 1px;
+	border: solid var(--border-color) 1px;
 	border-radius: 50%;
 	padding: 2px;
 }
@@ -16,5 +16,5 @@
 .toggle svg {
 	display: block;
 	position: relative;
-	fill: var(--primary-bright);
+	fill: var(--primary-text-color);
 }

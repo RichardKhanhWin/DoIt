@@ -3,17 +3,17 @@
 @tailwind utilities;
 
 body {
-  color: var(--primary-bright);
+  color: var(--primary-text-color);
   background: var(--background);
 }
 
 .todo-card {
-  background: var(--primary-dark);
-  border-color: var(--primary-dim);
+  background: var(--primary-color);
+  border-color: var(--border-color);
 }
 
 .todo-card .checkbox {
-  border-color: var(--primary-dim);
+  border-color: var(--border-color);
 }
 
 @layer utilities {
