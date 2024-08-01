@@ -25,7 +25,7 @@ export default function ToDoCard({ item_id, title, description, done }: { item_i
 	}
 
 	return (
-		<div className="todo-card border-2 border-slate-800 p-3 w-96 my-4">
+		<div className="todo-card border-2 p-3 w-96 my-4">
 			<div className="flex justify-between">
 				<h2 className="font-bold whitespace-nowrap overflow-hidden text-ellipsis">{title}</h2>
 				<div className="flex justify-between items-center gap-x-2">
