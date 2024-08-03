@@ -23,7 +23,7 @@ export default async function Home() {
         }
       </div>
 
-      <Link href="/create" className="p-2 bg-blue-700 text-white rounded-md">
+      <Link href="/create" className="button p-2 rounded-md">
         <PlusIcon className="h-5 w-5" />
       </Link>
     </main>

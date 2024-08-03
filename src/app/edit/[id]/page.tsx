@@ -10,14 +10,14 @@ export default async function EditToDoPage({ params }: { params: { id: string }}
 		<form action={editItem} className="flex items-center justify-center w-1/2 m-auto h-screen">
 			<div className="flex grow items-center flex-col gap-y-[8px]">
 				<div className="flex min-w-full justify-between gap-x-[4px]">
-					<input name="title" defaultValue={item?.title} className="dark:bg-slate-700 dark:text-white p-1 grow" placeholder="Title (required)" required maxLength={50} />
-					<Checkbox name="done" defaultChecked={item?.done} className="h-8 w-8 bg-slate-200 border-black border-2 text-black" />
+					<input name="title" defaultValue={item?.title} className="text-box h-8 grow" placeholder="Title (required)" required maxLength={50} />
+					<Checkbox name="done" defaultChecked={item?.done} className="checkbox h-8 w-8 border-2" />
 				</div>
 				<div className="flex min-w-full">
-					<textarea name="description" rows={10} defaultValue={item?.description || ""} className="dark:bg-slate-700 dark:text-white p-1 grow resize-none" placeholder="Description" />
+					<textarea name="description" rows={10} defaultValue={item?.description || ""} className="text-box grow resize-none" placeholder="Description" />
 				</div>
 				<div>
-					<button type="submit" className="p-2 rounded-md dark:bg-indigo-900 dark:text-white">Update</button>
+					<button type="submit" className="button p-2 rounded-md">Update</button>
 				</div>
 			</div>
 		</form>
