@@ -2,9 +2,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-To run the app locally, you must use a 64-bit system to be able to run the app, as Next.js i sonly compatible with 64-bit systems. You also need to have Node.js and PostgreSQL installed. I used Node.js 20.10.0 and PostgreSQL 14.3, though later versions of Node.js and PostgreSQL might still work.
+To run the app locally, you must use a 64-bit system to be able to run the app, as Next.js is only compatible with 64-bit systems. You also need to have Node.js and PostgreSQL installed. I used Node.js 20.10.0 and PostgreSQL 14.3, though later versions of Node.js and PostgreSQL might still work.
 
-Create an `.env.local` file in the DoIt folder and paste the content of the `.env` file. Then update the `.env.local` file accordingly by adding your postgres username, password, and database name.
+First, make sure you have created a PostgreSQL database for the application.
 
 Install the packages:
 
@@ -12,13 +12,14 @@ Install the packages:
 npm install
 ```
 
-Generate a prisma client by running the following command:
+Create an `.env` file in the DoIt folder and paste the content of the `.env.example` file. Then update the `.env` file accordingly by adding your PostgreSQL username, password, and database name.
+
+Generate a prisma client and migrate by running the following commands:
 
 ```bash
 npx prisma generate
+npx prisma migrate dev
 ```
-
-Before running the application, make sure that PostgreSQL is running.
 
 Then run the development server:
 
